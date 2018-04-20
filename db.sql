@@ -1,10 +1,10 @@
--- 176
-select IFNULL( (select e.Salary from Employee e group by e.Salary order by e.Salary desc limit 1, 1), NULL) SecondHighestSalary;
+-- 176 second highest salary
+SELECT IFNULL( (SELECT e.Salary FROM Employee e GROUP BY e.Salary ORDER BY e.Salary DESC LIMIT 1, 1), NULL) SecondHighestSalary;
 SELECT MAX(Salary) as SecondHighestSalary FROM Employee WHERE Salary NOT IN (SELECT MAX(Salary) FROM Employee);
 
--- 627
-update salary set  sex = (case when sex='f' then 'm' else 'f' end)
-update salary  set sex = IF(sex='m','f','m')
+-- 627 swap salary
+UPDATE salary SET  sex = (CASE WHEN sex='f' THEN 'm' ELSE 'f' END)
+UPDATE salary SET sex = IF(sex='m','f','m')
 
---182 duplicate emails
-select Email from Person group by Email having count(*) >1
+-- 182 duplicate emails
+SELECT Email FROM Person GROUP BY Email having COUNT(*) >1
