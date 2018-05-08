@@ -34,9 +34,8 @@ func judgeCircle2(moves string) bool {
 	}
 	if coordX == 0 && coordY == 0 {
 		return true
-	} else {
-		return false
 	}
+	return false
 
 }
 
